@@ -19,3 +19,5 @@
  + Script Anti-TriggerSV สามารถป้องกันการ TriggerServerEvent ได้ในระดับนึงเท่านั้น <br>
  + Script นี้อาจจะมีการ Update ช้าและไม่แน่นอน แต่จะพยายาม Update ให้ <br>
  + Script นี้แจกฟรีห้ามนำไปขายต่อ <br>
+
+ # นำไปแจกต่อโปรดให้ Credit ด้วยครับ ขอบคุณครับ
