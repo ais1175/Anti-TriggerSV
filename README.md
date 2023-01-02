@@ -1,10 +1,10 @@
 # Anti-TriggerSV
  Discord : https://discord.gg/FGeu25d34t <br>
- พบเจอปัญหาการใช้งานสอบถามได้ครับ <br>
+ พบเจอปัญหาการใช้งานสามารถสอบถามได้ครับ <br>
 
 # Patch-Update
 + [Update]3/01/2023 - เพิ่มการป้องกัน TriggerServerEvent <br>
-+ [Update]3/01/2023 - ป้องกันการ TriggerServerEvent <br>
++ [Update]3/01/2023 - ป้องกันการ TriggerServerEvent<br>
 
 # How-To-Use
  1.นำไฟล์ไปวางไว้ใน Resource ในเซิร์ฟเวอร์ของท่านแล้ว ensure Anti-TriggerSV ในไฟล์ server.cfg <br>
