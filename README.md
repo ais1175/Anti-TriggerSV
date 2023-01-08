@@ -3,6 +3,8 @@
  พบเจอปัญหาการใช้งานสามารถสอบถามได้ครับ <br>
 
 # Patch-Update
++ [Update]8/01/2023 - เพิ่มการป้องกัน Anti-Spam Events <br>
++ [Update]8/01/2023 - แก้ไขที่อยู่ไฟล์ Exports จาก core เป็น qwerty-protection <br>
 + [Update]3/01/2023 - เพิ่มการป้องกัน TriggerServerEvent <br>
 + [Update]3/01/2023 - ป้องกันการ TriggerServerEvent<br>
 
@@ -10,8 +12,8 @@
  1.นำไฟล์ไปวางไว้ใน Resource ในเซิร์ฟเวอร์ของท่านแล้ว ensure Anti-TriggerSV ในไฟล์ server.cfg <br>
  2.ทำการเปิด fxmanifest.lua ของ Resource ที่ท่านจะกัน TriggerServerEvent <br>
  3.นำ Code ข้างล่างไปวางไว้ข้างบนสุดของ fxmanifest.lua <br>
- server_script '@Anti-TriggerSV/core/sv.lua'  <br>
- client_script '@Anti-TriggerSV/core/cl.lua' <br>
+ server_script '@Anti-TriggerSV/qwerty-protection/sv.lua'  <br>
+ client_script '@Anti-TriggerSV/qwerty-protection/cl.lua' <br>
  4.แล้วทำการรัน Scripts ของท่านได้ปกติ <br>
 
  # About

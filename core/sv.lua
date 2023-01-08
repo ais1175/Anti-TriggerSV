@@ -1,42 +1,42 @@
 ESX = exports["es_extended"]:getSharedObject()
 
-local eventPrefix = GetCurrentResourceName() .. ":"
+recentEvents = {}
 
-if IsDuplicityVersion() then
-  local registerServerEvent, registerNetEvent, addEventHandler = RegisterServerEvent, RegisterNetEvent, AddEventHandler
-  local events = {}
+Citizen.CreateThread(function()
+	while true do 
+		Citizen.Wait(1000)
+		clientEventCount = {}
+		for i, event in ipairs(recentEvents) do 
+			if not clientEventCount[event.sender] then 
+				clientEventCount[event.sender] = 0 
+			end
+			clientEventCount[event.sender] = clientEventCount[event.sender]+1
+			table.remove(recentEvents,i)
+		end 
+		for k, data in pairs(recentEvents) do
+			if clientEventCount[data.sender] >= 1 and os.clock() - data.last_time < data.time then
+                BannedPlayer(data.sender)
+			end
+		end
+	end
+end)
 
-  function RegisterServerEvent(event)
-    events[event] = os.time()
-    return registerServerEvent(event)
-  end
+function handleSpammedEvents(event , time)
+	local source = source
+	local event = event
+	local time = time
+	local eventData = {name=event, sender = source, last_time = os.clock(), time = time}
+	table.insert(recentEvents, eventData)
+end
 
-  function Regenerate(_source, event)
-    RegisterServerEvent(event)
-    TriggerClientEvent(eventPrefix .. "HeartBeat-Events", _source, events)
-  end
+if Config['SpammedEvents'] then
+	for event, time in pairs(Config['SpammedEvents']) do
+		AddEventHandler(event, function()
+			handleSpammedEvents(event , time)
+		end)
+	end
+end
 
-  function AddEventHandler(event, func)
-    if events[event] then	
-      return addEventHandler(event,function(code, ...)
-          if code ~= events[event] then
-                BannedPlayer(event)
-            return CancelEvent()
-          end
-          Regenerate(source, event)
-          return func(...)
-        end)
-    end
-    return addEventHandler(event, func)
-  end
-
-  function BannedPlayer(event) -- Function Ban or Kick
-  -- @Parameter
-  -- event = ชื่อเหตุการณ์การ TriggerServerEvent
-  end
- 
-  registerServerEvent(eventPrefix .. "HeartBeat")
-  addEventHandler(eventPrefix .. "HeartBeat", function()
-      TriggerClientEvent(eventPrefix .. "HeartBeat-Events", source, events)
-    end)
+function BannedPlayer(playerid)
+    -- Parameter playerid = ไอดีผู้เล่น
 end
