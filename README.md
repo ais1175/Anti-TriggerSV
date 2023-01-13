@@ -1,5 +1,7 @@
 # Anti-TriggerSV
- Discord : https://discord.gg/FGeu25d34t <br>
+ Discord : https://discord.gg/grnHVBU <br>
+ Developer By : Qwerty
+ Team By : Xenon 
  พบเจอปัญหาการใช้งานสามารถสอบถามได้ครับ <br>
 
 # Patch-Update
